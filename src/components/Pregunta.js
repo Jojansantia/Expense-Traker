@@ -30,7 +30,7 @@ const Pregunta = ({ guardarPresupuesto, guardarRestante, actualizarPregunta }) =
                     >
                         <div className=" w-full flex justify-around mb-4 ">
                             <input
-                                type="text"
+                                type="number"
                                 className="appearance-none rounded border-2 mx-3 p-4 w-3/5 text-gray-700 leading-tight focus:outline-none focus:shadow-lg "
                                 placeholder="Presupuesto"
                                 onChange={definirPresupuesto}

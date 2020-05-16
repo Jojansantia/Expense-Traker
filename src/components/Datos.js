@@ -1,46 +1,41 @@
 import React from 'react';
 
 const Datos = ({presupuesto, restante}) => {
-    let clas="  rounded  border-2 py-2 my-auto px-3 text-gray-700  focus:outline-none focus:shadow-lg "
-    const c1 = "bg-green-300"
-    const c2 = "bg-yellow-300"
-    const c3 = "bg-red-300"
+    let bgrestante="border-b-4  my-auto px-3 text-gray-700 text-xl focus:outline-none focus:shadow-lg "
+    const c1 = "border-green-600"
+    const c2 = "border-yellow-600"
+    const c3 = "border-red-600"
 
     if (restante >= (presupuesto*0.7)) {
-        clas = clas + c1
+        bgrestante = bgrestante + c1
     } else if( (restante < (presupuesto*0.7)) && (restante > (presupuesto*0.25))  ) {
-        clas = clas + c2
+        bgrestante = bgrestante + c2
     }else {
-        clas = clas + c3
+        bgrestante = bgrestante + c3
     }
 
     return ( 
-        <div className=" flex border  justify-between container my-2 px-2 py-4">
-                <div className="text-center  ">
-                        <label className=" mr-2  text-gray-700 text-xl font-bold my-auto" htmlFor="nombre">
+        <div className=" flex border  my-2 px-2 py-4">
+                <div className="text-center w-1/2  flex justify-center ">
+                        <label className=" mr-2  text-gray-700 text-xl font-bold " htmlFor="nombre">
                             Presupuesto:
                         </label>
-                        <input
-                            className=" rounded m-auto border-2 py-2 my-auto py-2 px-3 text-gray-700  focus:outline-none focus:shadow-lg "
-                            id="nombre"
-                            type="nombre"
-                            placeholder="Presupuesto"
-                            value={presupuesto}
-                            readOnly={true}
-                        />
+                        
+                        <h2
+                        className="my-auto text-gray-700 text-xl"
+                        >$ {presupuesto}</h2>
                         </div>
-                    <div className="text-center">
-                        <label className=" mr-2 text-gray-700 text-xl font-bold my-auto" htmlFor="nombre">
+                    <div className="text-center w-1/2  flex justify-center ">
+                        <label className=" mr-2 text-gray-700 text-xl font-bold " htmlFor="nombre">
                             Restante:
                         </label>
-                        <input
-                            className={ clas} 
-                            id="nombre"
-                            type="nombre"
-                            placeholder="000000"
-                            readOnly={true}
-                            value={restante}
-                        />
+                        <h2
+                            className={bgrestante} 
+                        >
+                            $ {restante}
+                        </h2>       
+                        
+                        
                     </div>
                 </div>
      );

@@ -63,7 +63,7 @@ function App() {
 
   return(
     <>
-    <div className="container m-auto w-3/5">
+    <div className="mb-5 mx-5 md:m-auto md:w-3/5">
       { mostrarpregunta ?  
       ( 
         <Pregunta 
@@ -73,7 +73,7 @@ function App() {
         />
       )  :  (
         <div className=" ">
-          <div className=" container-fluid  justify-center">
+          <div className=" container-fluid  m-auto">
             <Header
               
             />  
