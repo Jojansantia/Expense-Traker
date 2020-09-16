@@ -22,7 +22,6 @@ function App() {
   }
   if(pregunta === null) {
     pregunta = true;
-    
   }
 
   const [ restante, guardarRestante] = useState(restanteInicial);
@@ -34,36 +33,33 @@ function App() {
 
   // Use Effect para realizar ciertas operaciones cuando el state cambia
   useEffect( () => {
-      let listadoInicial = JSON.parse(localStorage.getItem('gastos'));
-    
-      if(listadoInicial) {
-        localStorage.setItem('gastos', JSON.stringify(gastos))
-      } else {
-        localStorage.setItem('gastos', JSON.stringify([]));
-      }
+    let listadoInicial = JSON.parse(localStorage.getItem('gastos'));
+  
+    if(listadoInicial) {
+      localStorage.setItem('gastos', JSON.stringify(gastos))
+    } else {
+      localStorage.setItem('gastos', JSON.stringify([]));
+    }
 
-      if(!pregunta){
-        localStorage.setItem('presupuesto', JSON.stringify(presupuesto));
-        
-      }
+    if(!pregunta){
+      localStorage.setItem('presupuesto', JSON.stringify(presupuesto));
+      
+    }
   }, [gastos, pregunta, presupuesto] );
 
   useEffect(() => {
     if(creargasto) {
-
-        // agrega el nuevo saldo
         guardarGastos([
           ...gastos,
           gasto
         ]);
-        // Resetear a false
         guardarCrearGasto(false);
     }
   }, [gasto, creargasto, gastos]);
 
   return(
     <>
-    <div className="mb-5 mx-5 md:m-auto md:w-3/5">
+    <div className="mb-5 mx-5 md:m-auto sm:m-auto md:w-3/5 sm:w-4/5">
       { mostrarpregunta ?  
       ( 
         <Pregunta 
